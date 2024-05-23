@@ -46,9 +46,18 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <h2>Component #1</h2>
-      <Counter></Counter>
+      <Counter
+        title="Sayaç 1"
+        baslangic={100}
+        artisMiktari={10}
+        islem="*"
+      ></Counter>
       <h2>Component #2</h2>
-      <Counter></Counter>
+      <Counter title="Sayaç 2" baslangic={50}>
+        <h1>Çocuk Elemanlar Yaani Children</h1>
+        <hr />
+        <p>Hayatta en hakiki mürşit ilimdir!</p>
+      </Counter>
     </>
   );
 }
