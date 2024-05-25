@@ -1,12 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./Counter.css";
 import { CounterDisplay } from "./CounterDisplay";
 
-let sayac = 0;
-
-// 2015 ECMA Script 6 güncellemesi
-//    let, const, ``, class,
 
 export const Counter = ({
   title,
@@ -15,11 +11,7 @@ export const Counter = ({
   islem = "+",
   children,
 }) => {
-  // const { title, baslangic } = props;
-
   const [counter, setCounter] = useState(baslangic || 0);
-
-  console.log("Counter Componenti Propları :", { title, baslangic });
 
   const counterArttir = () => {
     if (islem === "*") {
@@ -38,6 +30,25 @@ export const Counter = ({
   };
 
   const changeCounter = (val) => setCounter(val);
+
+  useEffect(() => {
+    console.warn(
+      "**************** COOUNTER: COMPONENT DID MOUNT ********************"
+    );
+
+    return () => {
+      console.warn(
+        "**************** COOUNTER: COMPONENT WILL UN-MOUNT ********************"
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    // did update did mount fazında da tetiklenir
+    console.warn(
+      "**************** COOUNTER: COMPONENT DID UPDATE ********************"
+    );
+  });
 
   return (
     <CounterDisplay

@@ -3,10 +3,12 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Counter } from "./components/Counter";
 import "./App.css";
+import { ProductsPage } from "./pages/ProductsPage";
 
 // Root Component
 function App() {
   const [count, setCount] = useState(0);
+  const [show1, setShow1] = useState(true);
 
   const userName = "";
 
@@ -46,18 +48,22 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <h2>Component #1</h2>
-      <Counter
-        title="Sayaç 1"
-        baslangic={100}
-        artisMiktari={10}
-        islem="*"
-      ></Counter>
+      <button onClick={() => setShow1(!show1)}>Toggle Counter</button>
+      {show1 && (
+        <Counter
+          title="Sayaç 1"
+          baslangic={100}
+          artisMiktari={10}
+          islem="*"
+        ></Counter>
+      )}
       <h2>Component #2</h2>
       <Counter title="Sayaç 2" baslangic={50}>
         <h1>Çocuk Elemanlar Yaani Children</h1>
         <hr />
         <p>Hayatta en hakiki mürşit ilimdir!</p>
       </Counter>
+      <ProductsPage />
     </>
   );
 }
