@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-
-import "./Counter.css";
 import { CounterDisplay } from "./CounterDisplay";
 
+import "./Counter.css";
 
 export const Counter = ({
   title,
@@ -12,6 +11,7 @@ export const Counter = ({
   children,
 }) => {
   const [counter, setCounter] = useState(baslangic || 0);
+  const [hide, setHide] = useState(false);
 
   const counterArttir = () => {
     if (islem === "*") {
@@ -51,15 +51,21 @@ export const Counter = ({
   });
 
   return (
-    <CounterDisplay
-      title={title}
-      counter={counter}
-      artisMiktari={artisMiktari}
-      counterArttir={counterArttir}
-      counterAzalt={counterAzalt}
-      changeCounter={changeCounter}
-    >
-      {children}
-    </CounterDisplay>
+    <>
+      <button className="btn" onClick={() => setHide(!hide)}>
+        Hide Class - Toggle Counter
+      </button>
+      <CounterDisplay
+        title={title}
+        counter={counter}
+        artisMiktari={artisMiktari}
+        counterArttir={counterArttir}
+        counterAzalt={counterAzalt}
+        changeCounter={changeCounter}
+        hide={hide}
+      >
+        {children}
+      </CounterDisplay>
+    </>
   );
 };

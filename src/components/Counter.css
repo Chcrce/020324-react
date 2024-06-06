@@ -4,3 +4,12 @@
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
+
+.hide {
+  display: none;
+}
+
+h1 {
+  background-color: indigo;
+  color: white;
+}

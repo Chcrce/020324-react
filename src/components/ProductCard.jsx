@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 export const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
@@ -7,6 +9,7 @@ export const ProductCard = ({ product }) => {
       <h3>{product?.name}</h3>
       <p>{product?.description}</p>
       <p>{product?.price} ₺</p>
+      <Link to={`/product-detail/${product.id}/${product.name}`}>İncele</Link>
     </div>
   );
 };
