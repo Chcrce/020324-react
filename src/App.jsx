@@ -8,6 +8,7 @@ import { Link, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { HomePage } from "./pages/HomePage";
 import { CounterPage } from "./pages/CounterPage";
 import { ProductDetail } from "./pages/ProductDetail";
+import { LoginPage } from "./pages/LoginPage";
 
 // Root Component
 function App() {
@@ -26,9 +27,10 @@ function App() {
       <header>
         Project Header
         <nav>
-          <Link to="/">Ana Sayfa</Link>
-          <Link to="/counter">Sayaç</Link>
-          <Link to="/products">Ürünler</Link>
+          <Link to="/"> Ana Sayfa </Link>
+          <Link to="/counter"> Sayaç </Link>
+          <Link to="/products"> Ürünler </Link>
+          <Link to="/login"> Login </Link>
         </nav>
       </header>
       <div className="page-content">
@@ -38,6 +40,9 @@ function App() {
           </Route>
           <Route path="/counter" exact>
             <CounterPage />
+          </Route>
+          <Route path="/login" exact>
+            <LoginPage />
           </Route>
           <Route path="/products" exact>
             <ProductsPage />
