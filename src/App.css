@@ -1,42 +1,90 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Tahoma, Verdana, Geneva, sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+  padding: 1rem;
+  margin: 1rem;
+  flex-grow: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+form > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
-.card {
-  padding: 2em;
+form > div > label {
+  width: 40%;
 }
 
-.read-the-docs {
-  color: #888;
+input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.form-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  min-height: 300px;
+}
+
+.form-bg {
+  background-image: url("./assets/login.jpg");
+  flex-basis: 50%;
+  background-size: cover;
+  background-position-y: center;
+  min-height: 100%;
+}
+
+.page-content,
+header,
+footer {
+  padding: 1rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  transition: 0.25s;
+  cursor: pointer;
+  border-color: #3e3e3e;
+  background-color: #4e4e4e;
+  color: #efefef;
+}
+
+button:hover {
+  border-color: #7a7a7a;
+  background-color: #606060;
+  color: #ffffff;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-card {
+  flex-basis: 300px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #333;
+}
+
+.product-card > img {
+  width: 100%;
 }

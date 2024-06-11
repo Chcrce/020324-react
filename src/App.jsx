@@ -3,10 +3,17 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Counter } from "./components/Counter";
 import "./App.css";
+import { ProductsPage } from "./pages/ProductsPage";
+import { Link, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { HomePage } from "./pages/HomePage";
+import { CounterPage } from "./pages/CounterPage";
+import { ProductDetail } from "./pages/ProductDetail";
+import { LoginPage } from "./pages/LoginPage";
 
 // Root Component
 function App() {
   const [count, setCount] = useState(0);
+  const [show1, setShow1] = useState(true);
 
   const userName = "";
 
@@ -17,38 +24,38 @@ function App() {
   // Java Script Expression > JSX
   return (
     <>
-      <h1>Merhaba {userName}</h1>
-      123 % 13: {123 % 13}
-      {
-        // if veya for ?
-        // if veya for bir JSX mıdır?
-        // logUser();    >>>   function invoke/call/run   JSX
-        userName ? logUser() : console.log("Anonim")
-      }
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <header>
+        Project Header
+        <nav>
+          <Link to="/"> Ana Sayfa </Link>
+          <Link to="/counter"> Sayaç </Link>
+          <Link to="/products"> Ürünler </Link>
+          <Link to="/login"> Login </Link>
+        </nav>
+      </header>
+      <div className="page-content">
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/counter" exact>
+            <CounterPage />
+          </Route>
+          <Route path="/login" exact>
+            <LoginPage />
+          </Route>
+          <Route path="/products" exact>
+            <ProductsPage />
+          </Route>
+          <Route path="/product-detail/:productId/:productName" exact>
+            <ProductDetail />
+          </Route>
+          <Route path="*">
+            <h2>404 - Sayfa Bulunamadı</h2>
+          </Route>
+        </Switch>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <h2>Component #1</h2>
-      <Counter></Counter>
-      <h2>Component #2</h2>
-      <Counter></Counter>
+      <footer>Footer</footer>
     </>
   );
 }
